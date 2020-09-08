@@ -1,0 +1,4 @@
+shell
+cronn/nodejs-chrome-firefox:latest
+/bin/bash
+
