@@ -2,13 +2,18 @@ const assert = require('assert');
 const { Given, When, Then, AfterAll } = require('cucumber');
 const { Builder, By, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+const firefox = require('selenium-webdriver/firefox');
 
 // driver setup
 const chromeOptions = new chrome.Options();
-chromeOptions.addArguments("--headless", "--no-sandbox");
+chromeOptions.headless();
+chromeOptions.addArguments("--no-sandbox");
+const firefoxOptions = new firefox.Options();
+firefoxOptions.headless();
 const driver = new Builder()
     .forBrowser('chrome')
     .setChromeOptions(chromeOptions)
+    .setFirefoxOptions(firefoxOptions)
     .build();
 
 Given('a browser is open', () => {

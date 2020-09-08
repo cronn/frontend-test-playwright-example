@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Cucumber/Selenium example",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "test:firefox": "SELENIUM_BROWSER=firefox cucumber-js"
   },
   "author": "cronn GmbH",
   "license": "Apache V2",
   "dependencies": {
     "chromedriver": "^85.0.0",
     "cucumber": "^6.0.5",
+    "geckodriver": "^1.20.0",
     "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
