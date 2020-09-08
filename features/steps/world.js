@@ -7,7 +7,7 @@ const firefox = require('selenium-webdriver/firefox');
 // see https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md
 class BrowserWorld {
 
-    constructor({ attach, log, parameters }) {
+    constructor({attach, log, parameters}) {
         this.attach = attach;
         this.log = log;
         this.parameters = parameters;
