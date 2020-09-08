@@ -1,0 +1,27 @@
+name: Verify
+on:
+  schedule:
+    - cron: "15 6 * * MON"
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  tests:
+    name: Run all Tests
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Clone Git Repository
+        uses: actions/checkout@v2
+      - id: install
+        name: Install Dependencies
+        run: npm install
+      - id: chrome
+        name: Test against Google Chrome
+        run: npm run test
+      - id: firefox
+        name: Test against Mozilla Firefox
+        run: npm run test:firefox
