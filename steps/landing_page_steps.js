@@ -4,7 +4,7 @@ const {By, until} = require('selenium-webdriver');
 
 // we can define timeouts for async functions, defaults to 5000ms
 // see https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/timeouts.md
-Given('we navigate to the landing page', {timeout: 2 * 5000}, async function () {
+Given('we navigate to the landing page', {timeout: 10 * 5000}, async function () {
     await this.driver.get('http://www.cronn.de/');
 });
 
