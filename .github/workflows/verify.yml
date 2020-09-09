@@ -9,7 +9,6 @@ on:
 jobs:
   tests:
     name: Run all Tests
-
     strategy:
       fail-fast: false
       matrix:
@@ -20,16 +19,25 @@ jobs:
             browser: safari
           - os: windows-latest
             browser: edge
-
     runs-on: ${{ matrix.os }}
-
     steps:
       - id: checkout
         name: Clone Git Repository
         uses: actions/checkout@v2
+      - id: npm-cache
+        name: NPM Cache Directory
+        run: echo "::set-output name=dir::$(npm config get cache)"
+      - id: cache
+        name: Use Cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - id: install
         name: Install Dependencies
-        run: npm install
+        run: npm ci
       - id: test
         name: Run Tests
         run: npm run test:${{ matrix.browser }}
