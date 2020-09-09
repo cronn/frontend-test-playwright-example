@@ -8,7 +8,7 @@ on:
 
 jobs:
   tests:
-    name: Run all Tests
+    name: ${{ matrix.os }} (${{ matrix.browser }})
     strategy:
       fail-fast: false
       matrix:
@@ -19,6 +19,7 @@ jobs:
       - id: checkout
         name: Clone Git Repository
         uses: actions/checkout@v2
+      - uses: microsoft/playwright-github-action@v1
       - id: npm-cache
         name: NPM Cache Directory
         run: echo "::set-output name=dir::$(npm config get cache)"
