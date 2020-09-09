@@ -1,6 +1,6 @@
 # Cucumber with Selenium (JavaScript)
 
-This repository contains an example project that integrates [Cucumber](https://cucumber.io/) with [Selenium](https://www.selenium.dev/). You need a recent [NodeJS](https://nodejs.org/) version as well as [Google Chrome](https://www.google.com/chrome/) and/or [Mozilla Firefox](https://www.mozilla.org/firefox/).
+This repository contains an example project that integrates [Cucumber](https://cucumber.io/) with [Selenium](https://www.selenium.dev/). You need a recent [NodeJS](https://nodejs.org/) version as well as [Google Chrome](https://www.google.com/chrome/), [Mozilla Firefox](https://www.mozilla.org/firefox/), [Microsoft Edge](https://www.microsoft.com/edge), and [Apple Safari](https://www.apple.com/safari/).
 
 ## Quick Start
 
@@ -11,6 +11,7 @@ $ npm install
 
 # run tests with Google Chrome
 $ npm test
+$ npm run test:chrome
 
 # run tests with Mozilla Firefox
 $ npm run test:firefox
