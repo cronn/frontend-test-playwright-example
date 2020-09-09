@@ -14,6 +14,12 @@ $ npm test
 
 # run tests with Mozilla Firefox
 $ npm run test:firefox
+
+# run tests with Safari
+$ npm run test:safari
+
+# run tests with Edge
+$ npm run test:edge
 ```
 
 [<img src="https://www.cronn.de/img/logo_name_rgb_1200x630.png" alt="cronn GmbH" width="200"/>](https://www.cronn.de/)
