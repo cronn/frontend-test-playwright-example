@@ -21,6 +21,7 @@ class BrowserWorld {
         const firefoxOptions = new firefox.Options();
         firefoxOptions.headless();
         const edgeOptions = new edge.Options();
+        edgeOptions.headless();
         edgeOptions.setEdgeChromium(true);
         this.driver = new Builder()
             .forBrowser('chrome')
