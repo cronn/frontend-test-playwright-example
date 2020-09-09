@@ -11,7 +11,10 @@ on:
 jobs:
   tests:
     name: Run all Tests
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - id: checkout
         name: Clone Git Repository
