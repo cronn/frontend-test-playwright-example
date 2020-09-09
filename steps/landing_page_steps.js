@@ -1,39 +1,30 @@
-const assert = require('assert');
-const {Given, When, Then} = require('cucumber');
-const {By, until} = require('selenium-webdriver');
+const assert = require("assert");
+const { Given, When, Then } = require("cucumber");
 
 // we can define timeouts for async functions, defaults to 5000ms
 // see https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/timeouts.md
-Given('we navigate to the landing page', {timeout: 10 * 5000}, async function () {
-    await this.driver.get('http://www.cronn.de/');
+Given("we navigate to the landing page", async function () {
+  this.page = await this.browser.newPage();
+  await this.page.goto("http://www.cronn.de/");
 });
 
-Then('the company slogan can be seen', async function () {
-    const slogan = await this.driver.findElement(By.xpath("//h1[contains(text(), 'wir entwickeln software')]"));
-    const isDisplayed = await slogan.isDisplayed();
-    assert.ok(isDisplayed);
+Then("the company slogan can be seen", async function () {
+  await this.page.waitForSelector("text=wir entwickeln software");
 });
 
-Then('the page title is correct', async function () {
-    const title = await this.driver.getTitle();
-    assert.strictEqual(title, 'cronn GmbH - wir entwickeln software_');
+Then("the page title is correct", async function () {
+  const title = await this.page.title();
+  assert.strictEqual(title, "cronn GmbH - wir entwickeln software_");
 });
 
-Given('the cookie warning can be seen', async function () {
-    const cookieWarning = await this.driver.wait(until.elementLocated(By.linkText("Akzeptieren")), 5000);
-    const isDisplayed = await cookieWarning.isDisplayed();
-    assert.ok(isDisplayed);
+Given("the cookie warning can be seen", async function () {
+  await this.page.waitForSelector("text='Akzeptieren'");
 });
 
-When('we accept cookies', async function () {
-    const cookieWarning = await this.driver.findElement(By.linkText("Akzeptieren"));
-    await cookieWarning.click();
+When("we accept cookies", async function () {
+  await this.page.click("text='Akzeptieren'");
 });
 
-Then('the cookie warning cannot be seen anymore', async function () {
-    // cannot find invisible elements by link text, thus use xpath
-    const cookieWarning = await this.driver.findElement(By.xpath("//a[contains(text(), 'Akzeptieren')]"));
-    await this.driver.wait(until.elementIsNotVisible(cookieWarning), 5000);
-    const isDisplayed = await cookieWarning.isDisplayed();
-    assert.ok(!isDisplayed);
+Then("the cookie warning cannot be seen anymore", async function () {
+  await this.page.waitForSelector("text='Akzeptieren'", { state: "hidden" });
 });

@@ -1,26 +1,25 @@
-# Cucumber with Selenium (JavaScript)
+# Cucumber with Playwright (JavaScript)
 
-This repository contains an example project that integrates [Cucumber](https://cucumber.io/) with [Selenium](https://www.selenium.dev/). You need a recent [NodeJS](https://nodejs.org/) version as well as [Google Chrome](https://www.google.com/chrome/), [Mozilla Firefox](https://www.mozilla.org/firefox/), [Microsoft Edge](https://www.microsoft.com/edge), and [Apple Safari](https://www.apple.com/safari/).
+This repository contains an example project that integrates [Cucumber](https://cucumber.io/) with [Playwright](https://playwright.dev/).
+You need a recent [NodeJS](https://nodejs.org/) version.
+During installation, Playwright downloads browser binaries for Chromium, Firefox and WebKit.
 
 ## Quick Start
 
 ```shell
-$ git clone https://github.com/cronn-de/frontend-test-selenium-example your-own-tests
+$ git clone https://github.com/cronn-de/frontend-test-playwright-example your-own-tests
 $ cd your-own-tests
 $ npm install
 
-# run tests with Google Chrome
+# run tests with Chromium
 $ npm test
 $ npm run test:chrome
 
 # run tests with Mozilla Firefox
 $ npm run test:firefox
 
-# run tests with Safari
+# run tests with WebKit
 $ npm run test:safari
-
-# run tests with Edge
-$ npm run test:edge
 ```
 
 [<img src="https://www.cronn.de/img/logo_name_rgb_1200x630.png" alt="cronn GmbH" width="200"/>](https://www.cronn.de/)
