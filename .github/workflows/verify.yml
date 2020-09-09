@@ -1,9 +1,15 @@
 name: Verify
+
 on:
   schedule:
     - cron: "15 6 * * MON"
   pull_request: {}
   push: {}
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
   tests:
     name: Run all Tests
