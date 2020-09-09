@@ -9,6 +9,7 @@ jobs:
     name: Run all Tests
 
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         browser: [firefox, chrome]
