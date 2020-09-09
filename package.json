@@ -4,7 +4,10 @@
   "description": "Cucumber/Selenium example",
   "scripts": {
     "test": "cucumber-js",
-    "test:firefox": "SELENIUM_BROWSER=firefox cucumber-js"
+    "test:chrome": "SELENIUM_BROWSER=chrome cucumber-js",
+    "test:firefox": "SELENIUM_BROWSER=firefox cucumber-js",
+    "test:safari": "SELENIUM_BROWSER=safari cucumber-js",
+    "test:edge": "SELENIUM_BROWSER=MicrosoftEdge cucumber-js"
   },
   "author": "cronn GmbH",
   "license": "Apache V2",

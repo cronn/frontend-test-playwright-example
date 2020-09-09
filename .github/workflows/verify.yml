@@ -17,7 +17,7 @@ jobs:
           - os: macos-latest
             browser: safari
           - os: windows-latest
-            browser: MicrosoftEdge
+            browser: edge
 
     runs-on: ${{ matrix.os }}
 
@@ -30,6 +30,4 @@ jobs:
         run: npm install
       - id: test
         name: Run Tests
-        run: npm run test
-        env:
-          SELENIUM_BROWSER: ${{ matrix.browser }}
+        run: npm run test:${{ matrix.browser }}
