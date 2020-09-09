@@ -20,7 +20,7 @@ jobs:
           - os: macos-latest
             browser: safari
           - os: windows-latest
-            browser: edge
+            browser: MicrosoftEdge
 
     runs-on: ${{ matrix.os }}
 
