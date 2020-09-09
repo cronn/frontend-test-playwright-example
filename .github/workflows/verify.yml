@@ -2,12 +2,8 @@ name: Verify
 on:
   schedule:
     - cron: "15 6 * * MON"
-  pull_request:
-    branches:
-      - master
-  push:
-    branches:
-      - master
+  pull_request: {}
+  push: {}
 jobs:
   tests:
     name: Run all Tests
@@ -31,7 +27,7 @@ jobs:
       - id: install
         name: Install Dependencies
         run: npm install
-      - id: chrome
+      - id: test
         name: Run Tests
         run: npm run test
         env:
