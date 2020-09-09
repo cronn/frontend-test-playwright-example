@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+        browser: [firefox, chrome]
     runs-on: ${{ matrix.os }}
     steps:
       - id: checkout
@@ -23,8 +24,7 @@ jobs:
         name: Install Dependencies
         run: npm install
       - id: chrome
-        name: Test against Google Chrome
+        name: Run Tests
         run: npm run test
-      - id: firefox
-        name: Test against Mozilla Firefox
-        run: npm run test:firefox
+        env:
+          SELENIUM_BROWSER: ${{ matrix.browser }}
