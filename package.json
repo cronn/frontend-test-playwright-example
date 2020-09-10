@@ -1,7 +1,7 @@
 {
-  "name": "frontend-test-selenium-example",
+  "name": "frontend-test-playwright-example",
   "version": "1.0.0",
-  "description": "Cucumber/Selenium example",
+  "description": "Cucumber/Playwright example",
   "private": true,
   "scripts": {
     "test": "cucumber-js",
@@ -11,12 +11,10 @@
   },
   "author": "cronn GmbH",
   "license": "Apache-2.0",
-  "dependencies": {
+  "devDependencies": {
+    "cross-env": "^7.0.2",
     "cucumber": "^6.0.5",
     "playwright": "^1.3.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.2"
   },
   "repository": {
     "type": "git",
