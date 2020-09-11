@@ -18,13 +18,15 @@ Then("the page title is correct", async function () {
 });
 
 Given("the cookie warning can be seen", async function () {
-  await this.page.waitForSelector("text='Akzeptieren'");
+  this.privacyOverlay = await this.page.waitForSelector(
+    "//div[starts-with(normalize-space(.), 'Bitte akzeptieren Sie unsere Datenschutzvereinbarung')]"
+  );
 });
 
 When("we accept cookies", async function () {
-  await this.page.click("text='Akzeptieren'");
+  this.page.click("text='Akzeptieren'");
 });
 
 Then("the cookie warning cannot be seen anymore", async function () {
-  await this.page.waitForSelector("text='Akzeptieren'", { state: "hidden" });
+  await this.privacyOverlay.waitForElementState("hidden");
 });
